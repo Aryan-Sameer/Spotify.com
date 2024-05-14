@@ -58,7 +58,7 @@ const playMusic = (track, pause = false) => {
 
 
 async function displayAlbums() {
-    let a = await fetch(`/Spotify.com/songs/english`)
+    let a = await fetch(`/songs/`)
     let response = await a.text()
     let div = document.createElement('div')
     div.innerHTML = response
@@ -92,7 +92,7 @@ async function displayAlbums() {
 displayAlbums()
 
 async function main() {
-    await getSongs("songs/") // array of strings
+    await getSongs("songs/english") // array of strings
     playMusic(songs[0], true)
 
     play.addEventListener("click", () => {
