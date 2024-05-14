@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="icon" href="https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+</head>
+
+<body>
+    <div class="left">
+        <div class="home p-1 rounded base-colour m-1 flex-c">
+            <ul>
+                <li><img class="inverted" style="height: 28px;" src="SVGs/logo.svg" alt="Spotify-logo"></li>
+                <img class="close pointer" src="SVGs/close.svg" alt="Close">
+                <li class="pointer"><img class="inverted" src="SVGs/home.svg" alt="Home">Home</li>
+                <li class="pointer" style="color: #B3B3B3;"><img class="inactive" src="SVGs/search.svg"
+                        alt="Search">Search</li>
+            </ul>
+        </div>
+
+        <div class="library p-1 rounded base-colour m-1 flex-c">
+            <ul class="flex-r align-item justify-space">
+                <li style="gap: 10px; color: #B3B3B3;"><img class="inactive" src="SVGs/library.svg" alt="Libraries">Your
+                    Library</li>
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 p-1 pointer" viewBox="0 0 24 24" width="22"
+                    height="22" color="#b3b3b3" fill="none">
+                    <path d="M12 4V20M20 12H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </ul>
+            <div class="songlist">
+                <ul>
+
+                </ul>
+            </div>
+            <div class="footer flex-r">
+                <div><a href="https://www.spotify.com/in-en/legal/"><span>Legal</span></a></div>
+                <div><a href="https://www.spotify.com/in-en/safetyandprivacy/"><span>Safety &amp; Privacy
+                            Center</span></a></div>
+                <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/"><span>Privacy Policy</span></a></div>
+                <div><a href="https://www.spotify.com/in-en/legal/cookies-policy/"><span>Cookies</span></a></div>
+                <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
+                <div><a href="https://www.spotify.com/in-en/accessibility/"><span>Accessibility</span></a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right m-1 rounded base-colour">
+
+        <div class="header flex-r justify-space">
+            <div class="nav flex-r">
+                <img class="hamburger pointer" src="SVGs/hamburger.svg" alt="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 24 24" fill="none"
+                    class="injected-svg navbtn pointer"
+                    data-src="https://cdn.hugeicons.com/icons/arrow-left-01-stroke-sharp.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" role="img" color="#b3b3b3">
+                    <path d="M15 6L9 12L15 18" stroke="#b3b3b3" stroke-width="1.5" stroke-miterlimit="16"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg pointer" width="26" viewBox="0 0 24 24" fill="none"
+                    class="injected-svg navbtn pointer"
+                    data-src="https://cdn.hugeicons.com/icons/arrow-right-01-stroke-sharp.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" role="img" color="#b3b3b3">
+                    <path d="M9.00005 6L15 12L9 18" stroke="#b3b3b3" stroke-width="1.5" stroke-miterlimit="16"></path>
+                </svg>
+            </div>
+            <div class="account flex-r">
+                <button class="signupbtn accbtn pointer">Sign up</button>
+                <button class="loginbtn accbtn pointer">Log in</button>
+            </div>
+        </div>
+
+        <div class="spotifyPlaylist w-100">
+
+            <h2 class="m-0 primary-font inverted p-1">Spotify Playlist</h2>
+
+            <div class="holder flex-c space-aroud">
+                <div class="cardContainer">
+                    <!--cards from js-->
+
+                    <div data-folder="${folder}" class="card">
+                        <img class="poster" src="https://i.scdn.co/image/ab67706f0000000254473de875fea0fd19d39037"
+                            alt="">
+                        <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
+                        <h3 class="m-0">Lofi</h3>
+                        <p class="m-0">Tired? just relax and listen to Lofi music</p>
+                    </div>
+                    <div data-folder="${folder}" class="card">
+                        <img class="poster" src="https://i.scdn.co/image/ab67616d00001e02d0544ef8fda0264f48ee1751"
+                            alt="">
+                        <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
+                        <h3 class="m-0">Sad Songs</h3>
+                        <p class="m-0">You are not alone!</p>
+                    </div>
+                    <div data-folder="${folder}" class="card">
+                        <img class="poster"
+                            src="https://thisis-images.spotifycdn.com/37i9dQZF1DZ06evO16dfo1-default.jpg" alt="">
+                        <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
+                        <h3 class="m-0">Electric</h3>
+                        <p class="m-0">Best choice for a boring day</p>
+                    </div>
+                    <div data-folder="${folder}" class="card">
+                        <img class="poster"
+                            src="https://seeded-session-images.scdn.co/v2/img/122/secondary/track/0wedgCpvgK8SrNGCCgpMYc/en-GB"
+                            alt="">
+                        <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
+                        <h3 class="m-0">Bon-Voyage</h3>
+                        <p class="m-0">Well, a drive without music is just displacement</p>
+                    </div>
+                    <div data-folder="${folder}" class="card">
+                        <img class="poster" src="https://i.scdn.co/image/ab6765630000ba8a13bbad249bbf85caceadafd7"
+                            alt="">
+                        <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
+                        <h3 class="m-0">Party-Pop</h3>
+                        <p class="m-0">Lit the party!</p>
+                    </div>
+                    <div data-folder="${folder}" class="card">
+                        <img class="poster" src="https://i.scdn.co/image/ab67706f00000002344bde7ee069f45b6da72653"
+                            alt="">
+                        <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
+                        <h3 class="m-0">Telugu trending</h3>
+                        <p class="m-0">Bring the action!</p>
+                    </div>
+                    <div data-folder="${folder}" class="card">
+                        <img class="poster" src="https://i.scdn.co/image/ab67706f00000002e9a02e482327a99e79476c4b"
+                            alt="">
+                        <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
+                        <h3 class="m-0">Malyalam mallu</h3>
+                        <p class="m-0">Macha! bring up the beat!</p>
+                    </div>
+                    <div data-folder="${folder}" class="card">
+                        <img class="poster" src="https://i.scdn.co/image/ab67616d00001e02f7633c626d0dfbfdfbdccc0c"
+                            alt="">
+                        <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
+                        <h3 class="m-0">Tamil</h3>
+                        <p class="m-0">Best music at your finger tips...</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="playBar align-center flex justify-space primary-font m-0">
+                <div class="abovebar align-center flex justify-space primary-font m-0 w-100">
+                    <div class="songinfo flex-r">
+                        <!--song name from js-->
+                    </div>
+                    <div class="songbtn flex-r justify-center">
+                        <img id="previous" src="SVGs/prev.svg" alt="Prev">
+                        <img id="play" src="SVGs/play.svg" alt="Play">
+                        <img id="next" src="SVGs/next.svg" alt="Next">
+                    </div>
+
+                    <div class="timevol">
+
+                        <div class="songtime flex-r">
+                            <!--song time from js-->
+                        </div>
+                        <div class="volume">
+                            <img src="SVGs/volume.svg" alt="volume">
+                            <input type="range" value="60" name="volume">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="seekbar">
+                    <div class="circle">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
