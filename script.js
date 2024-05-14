@@ -92,7 +92,7 @@ async function displayAlbums() {
 displayAlbums()
 
 async function main() {
-    await getSongs("songs/english") // array of strings
+    await getSongs("songs/") // array of strings
     playMusic(songs[0], true)
 
     play.addEventListener("click", () => {
