@@ -4,7 +4,7 @@ let currFolder
 
 async function getSongs(folder) {
     currFolder = folder
-    let a = await fetch(`/${folder}`)
+    let a = await fetch(`/${currFolder}`)
     let response = await a.text()
     let div = document.createElement('div')
     div.innerHTML = response
@@ -14,32 +14,32 @@ async function getSongs(folder) {
     for (let i = 0; i < as.length; i++) {
         let element = as[i]
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`/${folder}/`)[1]) //sending href value (string) to the songs[] array
+            songs.push(element.href.split(`/${currFolder}/`)[1])
         }
     }
 
-    let songUL = document.querySelector('.songlist').getElementsByTagName('ul')[0] //songUL is the html element
+    let songUL = document.querySelector('.songlist').getElementsByTagName('ul')[0]
     songUL.innerHTML = ""
     for (const songname of songs) {
         songUL.innerHTML = songUL.innerHTML +
             `<li class="songItem flex-r justify-space">
-            <div class="template flex-r">
-                <img src="SVGs/music.svg" alt="poster">
-                <div class="details flex-c">
-                    <p>${songname.replaceAll("%20", " ")}</p>
-                    <p>artist</p>
+                <div class="template flex-r">
+                    <img src="SVGs/music.svg" alt="poster">
+                    <div class="details flex-c">
+                        <p>${songname.replaceAll("%20", " ").replaceAll(".mp3", "")}</p>
+                        <p>artist</p>
+                    </div>
                 </div>
-            </div>
-            <div class="playnow flex-r align-center">
-                <p>Play now</p>
-                <img src="SVGs/playbtn.svg" alt="play">
-            </div>
-        </li>`
+                <div class="playnow flex-r align-center">
+                    <p>Play now</p>
+                    <img src="SVGs/playbtn.svg" alt="play">
+                </div>
+            </li>`
     }
 
     Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
-        e.addEventListener("click", element => {
-            playMusic(e.getElementsByTagName('div')[0].children[1].children[0].innerHTML.trim())
+        e.addEventListener("click", () => {
+            playMusic(e.getElementsByTagName('div')[0].children[1].children[0].innerHTML + ".mp3".trim())
         })
     })
     return songs
@@ -52,19 +52,20 @@ const playMusic = (track, pause = false) => {
         currentSong.play()
         play.src = "SVGs/pause.svg"
     }
-    document.querySelector(".songinfo").innerHTML = `<p class="self-center inverted m-0 primary-font"> ${decodeURI(track)} </p>`
+    document.querySelector(".songinfo").innerHTML = `<p class="self-center inverted m-0 primary-font"> ${decodeURI(track).replace(".mp3", "")} </p>`
     document.querySelector(".songtime").innerHTML = `<p class="self-center inverted m-0 primary-font"> 00:00 / 00:00 </p>`
 }
 
 
 async function displayAlbums() {
-    let a = await fetch(`/songs/`)
+    let a = await fetch(`/songs/`) 
     let response = await a.text()
     let div = document.createElement('div')
     div.innerHTML = response
     let anchor = div.getElementsByTagName('a')
     let cardContainer = document.querySelector(".cardContainer")
     let array = Array.from(anchor)
+
     for (let index = 0; index < array.length; index++) {
         const e = array[index];
 
@@ -73,18 +74,19 @@ async function displayAlbums() {
             let a = await fetch(`/songs/${folder}/info.json`)
             let response = await a.json()
             cardContainer.innerHTML +=
-                `<div data-folder="${folder}" class="card">
-                        <img class="poster" src="/songs/${folder}/cover.jpg" alt="">
-                        <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
-                        <h3 class="m-0">${response.title}</h3>
-                        <p class="m-0">${response.description}</p>
-                    </div>`
+                `<div data-folder="${folder}" class="card"> 
+                    <img class="poster" src="/songs/${folder}/cover.jpg" alt="">
+                    <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
+                    <h3 class="m-0">${response.title}</h3>
+                    <p class="m-0">${response.description}</p>
+                </div>`
         }
     }
 
     Array.from(document.getElementsByClassName('card')).forEach(e => {
         e.addEventListener("click", async item => {
-            songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)
+            await getSongs(`songs/${item.currentTarget.dataset.folder}`)
+            document.querySelector(".left").style.left = "0"
         })
     })
 
@@ -92,7 +94,7 @@ async function displayAlbums() {
 displayAlbums()
 
 async function main() {
-    await getSongs("songs/") // array of strings
+    await getSongs("songs/")
     playMusic(songs[0], true)
 
     play.addEventListener("click", () => {
@@ -109,6 +111,13 @@ async function main() {
     currentSong.addEventListener("timeupdate", () => {
         document.querySelector(".songtime").innerHTML = `<p class="self-center inverted m-0 primary-font">${convertSecondsToMinutes(currentSong.currentTime)} / ${convertSecondsToMinutes(currentSong.duration)}</p>`
         document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
+        if (document.querySelector(".circle").style.left == "100%") {
+            let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+            if (index < songs.length - 1) {  
+                playMusic(songs[index + 1])
+                document.querySelector(".circle").style.left = "0%"
+            }
+        }
     })
 
     function convertSecondsToMinutes(seconds) {
@@ -165,8 +174,7 @@ async function main() {
     document.querySelector(".volume").getElementsByTagName("input")[0].addEventListener("change", e => {
         console.log("volume changed to ", e.target.value)
         currentSong.volume = parseInt(e.target.value) / 100
-        if (currentSong.volume > 0){
-            console.log(e.target)
+        if (currentSong.volume > 0) {
             document.querySelector(".volume>img").src = "SVGs/volume.svg"
         }
     })
