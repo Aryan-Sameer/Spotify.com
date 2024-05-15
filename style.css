@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Flow+Circular&display=swap');
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 
 body {
     margin: 0;
