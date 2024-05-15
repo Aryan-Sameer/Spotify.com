@@ -17,7 +17,7 @@ body {
     transition: 0.7s linear;
     z-index: 2;
     background-color: black;
-    height: 100vh;
+    height: 100svh;
 }
 
 .right {
@@ -58,8 +58,7 @@ body {
 }
 
 .library {
-    min-height: 74vh;
-    position: relative;
+    min-height: 60vh;
     position: sticky;
     top: 0px;
 }
