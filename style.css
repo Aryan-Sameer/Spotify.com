@@ -152,6 +152,7 @@ h2 {
     justify-content: space-between;
     padding: 6px;
     row-gap: 10px;
+    height: min-content;
 }
 
 .card {
