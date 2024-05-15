@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify - Web Player: Music for everyone</title>
     <link rel="icon" href="https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utility.css">
 </head>
 
 <body>
@@ -16,9 +16,9 @@
             <ul>
                 <li><img class="inverted" style="height: 28px;" src="SVGs/logo.svg" alt="Spotify-logo"></li>
                 <img class="close pointer" src="SVGs/close.svg" alt="Close">
-                <li class="pointer"><img class="inverted" src="SVGs/home.svg" alt="Home">Home</li>
-                <li class="pointer" style="color: #B3B3B3;"><img class="inactive" src="SVGs/search.svg"
-                        alt="Search">Search</li>
+                <li><img class="inverted pointer" src="SVGs/home.svg" alt="Home"><span class="pointer">Home</span></li>
+                <li style="color: #B3B3B3;"><img class="inactive pointer" src="SVGs/search.svg" alt="Search"><span
+                        class="pointer">Search</span></li>
             </ul>
         </div>
 
@@ -78,7 +78,7 @@
 
             <h2 class="m-0 primary-font inverted p-1">Spotify Playlist</h2>
 
-            <div class="holder flex-c space-aroud">
+            <div class="holder flex space-aroud">
                 <div class="cardContainer">
                     <!--cards from js-->
 
@@ -87,21 +87,21 @@
                             alt="">
                         <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
                         <h3 class="m-0">Lofi</h3>
-                        <p class="m-0">Tired? just relax and listen to Lofi music</p>
+                        <p class="m-0">Lofi beats to soothe the soul.</p>
                     </div>
                     <div data-folder="${folder}" class="card">
                         <img class="poster" src="https://i.scdn.co/image/ab67616d00001e02d0544ef8fda0264f48ee1751"
                             alt="">
                         <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
                         <h3 class="m-0">Sad Songs</h3>
-                        <p class="m-0">You are not alone!</p>
+                        <p class="m-0">Echoes of melancholy in every note.</p>
                     </div>
                     <div data-folder="${folder}" class="card">
                         <img class="poster"
-                            src="https://thisis-images.spotifycdn.com/37i9dQZF1DZ06evO16dfo1-default.jpg" alt="">
+                            src="https://thisis-images.spotifycdn.com/37i9dQZF1DZ06evO04kFZs-default.jpg" alt="">
                         <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
-                        <h3 class="m-0">Electric</h3>
-                        <p class="m-0">Best choice for a boring day</p>
+                        <h3 class="m-0">Pop</h3>
+                        <p class="m-0">Pop melodies for every heartbeat.</p>
                     </div>
                     <div data-folder="${folder}" class="card">
                         <img class="poster"
@@ -109,35 +109,21 @@
                             alt="">
                         <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
                         <h3 class="m-0">Bon-Voyage</h3>
-                        <p class="m-0">Well, a drive without music is just displacement</p>
+                        <p class="m-0">Drive into the rhythm of the night.</p>
                     </div>
                     <div data-folder="${folder}" class="card">
                         <img class="poster" src="https://i.scdn.co/image/ab6765630000ba8a13bbad249bbf85caceadafd7"
                             alt="">
                         <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
                         <h3 class="m-0">Party-Pop</h3>
-                        <p class="m-0">Lit the party!</p>
+                        <p class="m-0">Where the beats never stop, and the fun never ends.</p>
                     </div>
                     <div data-folder="${folder}" class="card">
                         <img class="poster" src="https://i.scdn.co/image/ab67706f00000002344bde7ee069f45b6da72653"
                             alt="">
                         <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
                         <h3 class="m-0">Telugu trending</h3>
-                        <p class="m-0">Bring the action!</p>
-                    </div>
-                    <div data-folder="${folder}" class="card">
-                        <img class="poster" src="https://i.scdn.co/image/ab67706f00000002e9a02e482327a99e79476c4b"
-                            alt="">
-                        <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
-                        <h3 class="m-0">Malyalam mallu</h3>
-                        <p class="m-0">Macha! bring up the beat!</p>
-                    </div>
-                    <div data-folder="${folder}" class="card">
-                        <img class="poster" src="https://i.scdn.co/image/ab67616d00001e02f7633c626d0dfbfdfbdccc0c"
-                            alt="">
-                        <img class="playButton" src="SVGs/playbtn.svg" alt="playButton">
-                        <h3 class="m-0">Tamil</h3>
-                        <p class="m-0">Best music at your finger tips...</p>
+                        <p class="m-0">Telugu tunes taking the charts by storm.</p>
                     </div>
 
                 </div>
@@ -161,7 +147,7 @@
                         </div>
                         <div class="volume">
                             <img src="SVGs/volume.svg" alt="volume">
-                            <input type="range" value="60" name="volume">
+                            <input type="range" value="40" name="volume">
                         </div>
                     </div>
 
