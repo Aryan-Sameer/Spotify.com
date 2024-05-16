@@ -2,7 +2,6 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-
 body {
     margin: 0;
     padding: 0;
@@ -13,11 +12,13 @@ body {
 .left {
     position: sticky;
     top: 0px;
+    display: flex;
+    flex-direction: column;
     width: 25%;
     transition: 0.7s linear;
     z-index: 2;
     background-color: black;
-    height: 100svh;
+    height: 100vh;
 }
 
 .right {
@@ -58,9 +59,8 @@ body {
 }
 
 .library {
-    min-height: 60vh;
-    position: sticky;
-    top: 0px;
+    flex-grow: 0.995;
+    position: relative;
 }
 
 .footer {
@@ -69,7 +69,7 @@ body {
     column-gap: 20px;
     row-gap: 10px;
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
 }
 
 .footer a {
@@ -146,12 +146,12 @@ h2 {
 .cardContainer {
     display: flex;
     flex-wrap: wrap;
+    height: min-content;
     margin: 0 auto;
     align-items: center;
     justify-content: space-between;
-    padding: 6px 6px 80px 6px;
+    padding: 6px;
     row-gap: 10px;
-    height: min-content;
 }
 
 .card {
@@ -215,9 +215,9 @@ h2 {
     background-color: #212020;
     box-shadow: 0px 15px 12px 0px #0a0a0a;
     padding: 20px 0px;
-    width: 74.2vw;
+    width: 74.32vw;
     height: 40px;
-    margin-bottom: 7px;
+    margin-bottom: 6px;
     border-radius: 0px 0px 7px 7px;
 }
 
@@ -258,6 +258,8 @@ h2 {
 .details p {
     margin: 0;
 }
+
+/*     SCROLL BAR STYLES    */
 
 ::-webkit-scrollbar-track {
     background-color: transparent;
@@ -402,14 +404,17 @@ h2 {
     .cardContainer {
         justify-content: space-around;
     }
-    .playBar{
+
+    .playBar {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     .card:hover>.playButton {
         top: 70%;
     }
+
     .playButton {
         top: 75%;
         right: 40px;
@@ -473,8 +478,9 @@ h2 {
     }
 
     .cardContainer {
+        display: flex;
         justify-content: center;
-        margin-bottom: 80px;
+        margin-bottom: 70px;
     }
 
     .volume {
@@ -484,29 +490,34 @@ h2 {
     .holder {
         height: 73svh;
     }
+
     .card:hover>.playButton {
         top: 80%;
     }
+
     .playButton {
         top: 85%;
         right: 40px;
     }
 }
 
-@media (max-width: 510px){
-    .seekbar{
+@media (max-width: 510px) {
+    .seekbar {
         width: 88vw;
     }
+
     .card:hover>.playButton {
         top: 70%;
     }
+
     .playButton {
         top: 75%;
         right: 40px;
     }
 }
-@media (max-width: 440px){
-    .seekbar{
+
+@media (max-width: 440px) {
+    .seekbar {
         width: 85vw;
     }
 }
@@ -525,7 +536,7 @@ h2 {
     }
 }
 
-
+/*       RANGE INPUT STYLE     */
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
